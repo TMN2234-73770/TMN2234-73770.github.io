@@ -1,0 +1,120 @@
+/* === style.css === */
+/* === Reset all browser default values === */
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+/* === header === */
+header {
+	background-color: #ddd;
+	border: 1px solid #ccc;
+	box-shadow: 5px 5px 10px #aaa;
+}
+header h1 {
+	margin: 20px 0;
+	text-align: center;
+}
+
+/* === section (index.html) === */
+section {
+	margin: 40px auto 40px;
+	padding: 20px;
+	width: 80%;
+	background-color: #ddd;
+	border: 1px solid #aaa;
+	box-shadow: 10px 10px 10px #aaa;
+}
+.text-row, li {
+	padding-bottom: 15px;
+}
+.text-col1 {
+	display: inline-block;
+	width: 160px;
+	font-weight: bold;
+}
+ol {
+	margin-top: 5px;
+	margin-left: 50px;
+}
+li {
+	padding-left: 10px;
+}
+a {
+	text-decoration: none;
+}
+
+/* === section (table.html) === */
+table {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	width: 100%;
+}
+table, th, td {
+	border-collapse: collapse;
+	border: 1px solid black;
+	padding: 10px;
+}
+th {
+	background-color: #999;
+	color: #fff;
+}
+td {
+	background-color: #fff;
+}
+section > a {
+	font-size: 75%;
+	float: right;
+}
+
+/* === section (form.html) === */
+fieldset {
+	margin-bottom: 10px;
+	padding: 15px;
+}
+label {
+	display: inline-block;
+	width: 150px;
+	padding-bottom: 10px;
+}
+input[type=text],
+input[type=email],
+input[type=password] {
+	display: inline-block;
+	width: 65%;
+	padding: 5px;
+	box-sizing: border-box;
+}
+select {
+	padding: 5px;
+}
+textarea {
+	width:100%;
+	padding: 5px;
+	box-sizing: border-box;
+}
+#label_accept {
+	width: 80%;
+	font-size: 95%;
+}
+input[type=submit],
+input[type=reset] {
+	width: 100px;
+	height: 25px;
+}
+.center {
+	text-align: center;
+}
+
+/* === footer === */
+footer {
+	background-color: #ddd;
+	border: 1px solid #ccc;
+	box-shadow: 5px 5px 10px #aaa;
+}
+footer img {
+    display: block;
+	margin: 15px auto;
+	width: 100px;
+}
