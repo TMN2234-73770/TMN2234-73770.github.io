@@ -45,7 +45,7 @@
 	var special_character = document.getElementById("special character");
 	var length = document.getElementById("length");
 
-  // Validate lowercase letters
+ 
 	var lowerCaseLetters = /[a-z]/g;
 	if(myInput.value.match(lowerCaseLetters)) {  
     letter.classList.remove("invalid"); 
@@ -56,7 +56,7 @@
 	return false;
   }
   
-  // Validate capital letters
+  
   var upperCaseLetters = /[A-Z]/g;
   if(myInput.value.match(upperCaseLetters)) {  
     capital.classList.remove("invalid");
@@ -67,7 +67,7 @@
 	return false;
   }
 
-  // Validate numbers
+  
   var numbers = /[0-9]/g;
   if(myInput.value.match(numbers)) {  
     number.classList.remove("invalid");
@@ -78,7 +78,7 @@
 	return false;
   }
   
-   // Validate special_character
+   
   var special_character = /[!@#$%^&*]/g;
   if(myInput.value.match(specialcharacter)) {  
     number.classList.remove("invalid");
@@ -89,8 +89,8 @@
 	return false;
   }
   
-  //
-  // Validate length
+
+ 
   if(myInput.value.length = 6) {
     length.classList.remove("invalid");
     length.classList.add("valid");
@@ -120,39 +120,40 @@
         <legend>Personal Information</legend>
         <div>
           <label for="fname">First Name</label>
-          <input type="text" name="fname" id="fname" required>
+          <input type="text" name="fname" id="fname" value ="<?php echo $fname; ?>">
         </div>
         <div>
           <label for="lname">Last Name</label>
-          <input type="text" name="lname" id="lname">
+          <input type="text" name="lname" id="lname" value ="<?php echo $lname; ?>">
         </div>
         <div>
           <label for="email">Email Address</label>
-          <input type="email" name="EMail" id="email">
+          <input type="email" name="EMail" id="email" value ="<?php echo $email; ?>">
         </div>
         <div>
           <label for="mnumber">Mobile number</label>
-          <input type="tel" name="mNumber" id="phone">
-		  <small>E.g. 011 2345678</small>
+          <input type="tel" name="mNumber" id="phone" value ="<?php echo $phone; ?>">
+		  <small>E.g. +60-123456789</small>
         </div>
 		
         <div>
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{6}" title="Must contain 6 characters with at least one number and one uppercase and one lowercase letter and one special characters" required>
-        </div>
+          <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}" title="should be 6 digits length contain ONE  uppercase ONE lowercase ONE special character" required value ="<?php echo $password; ?>">
+        
+		</div>
       </fieldset>
 
       <div>
         <textarea rows="3">TERMS AND CONDITIONS</textarea>
       </div>
       <div>
-        <input type="checkbox" name="accept" id="accept">
+        <input type="checkbox" name="accept" id="accept" value ="<?php echo $accept; ?>">
         <label for="accept" id="label_accept">I accept the above Terms and Conditions.</label>
       </div>
 
       <div class="center">
-        <input type="submit" name="btnSubmit" value="Register">
-        <input type="reset" name="btnReset" value="Clear">
+        <input type="submit" name="btnSubmit" value="Register" value ="<?php echo $Register; ?>">
+        <input type="reset" name="btnReset" value="Clear" value ="<?php echo $Clear; ?>">
       </div>
     </form>
     <a href="index.html">Back to Main Page</a>
