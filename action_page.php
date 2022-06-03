@@ -1,6 +1,6 @@
 <?php 
 
- $fname= $lname = $email = $phone = $password= "" $checked="";
+ $fname= $lname = $email = $phone = $password = $checked ="";
  $fnameErr= $lnameErr= $emailErr= $phoneErr= $passwordErr= $checkedErr =="";
  
  if($_SERVER["REQUEST_METHOD"]=="POST"){
