@@ -1,7 +1,7 @@
 <?php 
 
- $fname= $lnameErr = $emailErr = $phone = $password= "";;
- $fnameErr= $lnameErr= $emailErr= $phoneErr= $passwordErr= $checkedErr =="" ;
+ $fname= $lname = $email = $phone = $password= "" $checked="";
+ $fnameErr= $lnameErr= $emailErr= $phoneErr= $passwordErr= $checkedErr =="";
  
  if($_SERVER["REQUEST_METHOD"]=="POST"){
 	 if(empty($_POST["fname"])){
