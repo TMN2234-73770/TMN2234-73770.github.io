@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head><!DOCTYPE html>
-<html>
 <head>
 	<title>Assignment 2</title>
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -23,29 +21,35 @@
             return false;
 		}
 		
-		if( document.myform.EMail.value == "" ){
-			alert( "Please provide your Email!" );
-			document.myform.EMail.focus() ;
-			return false;
-		}
-		
-		function validateEmail(){
-			var emailID = document.myform.EMail.value;
-				atpos = emailID.indexOf("@");
-				dotpos = emailID.lastIndexOf(".");
-			if (atpos < 1 || (dotpos - atpos < 2 )) {
-				alert("Please enter correct email ID")
-				document.myform.EMail.focus() ;
-				return false;
-			}
-		}
-		
-	var myInput = document.getElementById("psw");
-	var letter = document.getElementById("letter");
-	var capital = document.getElementById("capital");
-	var number = document.getElementById("number");
-	var special_character = document.getElementById("special character");
-	var length = document.getElementById("length");
+	
+         	var email = document.myform.email.value;
+         	atpos = email.indexOf("@");
+         	dotpos = email.lastIndexOf(".");
+         
+         if (atpos < 1 || ( dotpos - atpos < 2 )) {
+            alert("Please enter correct email")
+            document.myForm.email.focus() ;
+            
+		return false;
+         }
+   	
+	var phone = document.forms.phone.value;
+	var phone=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9_\.\-])+\.)+([a-zA-Z0-9]{2,4}) $/;
+	if (phone == "" || !phone.test(phone)) {
+                    alert("Please enter valid phone number.");
+                    phone.focus();
+                    
+		    return false;
+                }
+	
+
+	
+	var myInput = document.myform.getElementById("password");
+	var letter = document.myform.getElementById("letter");
+	var capital = document.myform.getElementById("capital");
+	var number = document.myform.getElementById("number");
+	var special_character = document.myform.getElementById("special character");
+	var length = document.myform.getElementById("length");
 
  
 	var lowerCaseLetters = /[a-z]/g;
@@ -150,12 +154,16 @@
 		  <?php if(isset($phoneErr)){?>
 				<span class="error"><?php echo $phoneErr ?></span>
 			<?php }?>
-		  <small>E.g. +60-123456789</small>
+		  <small>E.g. +xx-xxxxxxxxx</small>
         </div>
 		 
         <div>
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}" title="should be 6 digits length contain ONE  uppercase ONE lowercase ONE special character" required value ="<?php echo $phone; ?>">
+          <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$/" title="should be 6 digits length contain ONE  uppercase ONE lowercase ONE special character" required value ="<?php echo $password; ?>">
+		
+		 <?php if(isset($passwordErr)){?>
+				<span class="error"><?php echo $passwordErr ?></span>
+			<?php }?>
 		</div>
       </fieldset>
 
@@ -163,180 +171,17 @@
         <textarea rows="3">TERMS AND CONDITIONS</textarea>
       </div>
       <div>
-        <input type="checkbox" name="accept" id="accept" value ="<?php echo $accept; ?>">
-		<br>
+        <input type="checkbox" name="accept" id="accept">
 		<?php if(isset($checkedErr)){?>
 				<span class="error"><?php echo $checkedErr ?></span>
 			<?php }?>
         <label for="accept" id="label_accept">I accept the above Terms and Conditions.</label>
       </div>
-	  </br>
 
       <div class="center">
-        <input type="submit" name="btnSubmit" value="Register" value ="<?php echo $Register; ?>">
+        <input type="submit" name="btnSubmit" value="Register">
+ 			
         <input type="reset" name="btnReset" value="Clear">
-      </div>
-    </form>
-    <a href="index.html">Back to Main Page</a>
-  </section>
-  <footer>
-    <img src="unimas.png" alt="UNIMAS Logo">
-  </footer>
-</body>
-</html>
-	<title>Assignment 2</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-
-
-
-<script type="text/javascript">
-   // JavaScript form validation code will come here.
-      function jsValidate(){
-		 if( document.myform.fname.value == "" ){
-            alert( "Please provide your first name!" );
-            document.myform.fname.focus() ;
-            return false;
-         }
-		 
-		  if( document.myform.lname.value == "" ){
-            alert( "Please provide your last name!" );
-            document.myform.lname.focus() ;
-            return false;
-		}
-		
-		if( document.myform.EMail.value == "" ){
-			alert( "Please provide your Email!" );
-			document.myform.EMail.focus() ;
-			return false;
-		}
-		
-		function validateEmail(){
-			var emailID = document.myform.EMail.value;
-				atpos = emailID.indexOf("@");
-				dotpos = emailID.lastIndexOf(".");
-			if (atpos < 1 || (dotpos - atpos < 2 )) {
-				alert("Please enter correct email ID")
-				document.myform.EMail.focus() ;
-				return false;
-			}
-		}
-		
-	var myInput = document.getElementById("psw");
-	var letter = document.getElementById("letter");
-	var capital = document.getElementById("capital");
-	var number = document.getElementById("number");
-	var special_character = document.getElementById("special character");
-	var length = document.getElementById("length");
-
- 
-	var lowerCaseLetters = /[a-z]/g;
-	if(myInput.value.match(lowerCaseLetters)) {  
-    letter.classList.remove("invalid"); 
-    letter.classList.add("valid");
-  } else {
-    letter.classList.remove("valid");
-    letter.classList.add("invalid");
-	return false;
-  }
-  
-  
-  var upperCaseLetters = /[A-Z]/g;
-  if(myInput.value.match(upperCaseLetters)) {  
-    capital.classList.remove("invalid");
-    capital.classList.add("valid");
-  } else {
-    capital.classList.remove("valid");
-    capital.classList.add("invalid");
-	return false;
-  }
-
-  
-  var numbers = /[0-9]/g;
-  if(myInput.value.match(numbers)) {  
-    number.classList.remove("invalid");
-    number.classList.add("valid");
-  } else {
-    number.classList.remove("valid");
-    number.classList.add("invalid");
-	return false;
-  }
-  
-   
-  var special_character = /[!@#$%^&*]/g;
-  if(myInput.value.match(specialcharacter)) {  
-    number.classList.remove("invalid");
-    number.classList.add("valid");
-  } else {
-    number.classList.remove("valid");
-    number.classList.add("invalid");
-	return false;
-  }
-  
-
- 
-  if(myInput.value.length = 6) {
-    length.classList.remove("invalid");
-    length.classList.add("valid");
-  } else {
-    length.classList.remove("valid");
-    length.classList.add("invalid");
-	return false;
-  }
-  
-		return( true );	
-	
-      }
-	  
-	
-</script>
-
-</head>
-<body>
-  <header>
-    <h1>Form Validation</h1>
-  </header>
-
-  <section>
-    <h2>Registration</h2>
-    <form method="post" action="action_page.php" enctype="multipart/form-data" name="myform" onsubmit="return jsValidate()">
-      <fieldset>
-        <legend>Personal Information</legend>
-        <div>
-          <label for="fname">First Name</label>
-          <input type="text" name="fname" id="fname" value ="<?php echo $fname; ?>">
-        </div>
-        <div>
-          <label for="lname">Last Name</label>
-          <input type="text" name="lname" id="lname" value ="<?php echo $lname; ?>">
-        </div>
-        <div>
-          <label for="email">Email Address</label>
-          <input type="email" name="EMail" id="email" value ="<?php echo $email; ?>">
-        </div>
-        <div>
-          <label for="mnumber">Mobile number</label>
-          <input type="tel" name="mNumber" id="phone" value ="<?php echo $phone; ?>">
-		  <small>E.g. +60-123456789</small>
-        </div>
-		
-        <div>
-          <label for="password">Password</label>
-          <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}" title="should be 6 digits length contain ONE  uppercase ONE lowercase ONE special character" required value ="<?php echo $password; ?>">
-        
-		</div>
-      </fieldset>
-
-      <div>
-        <textarea rows="3">TERMS AND CONDITIONS</textarea>
-      </div>
-      <div>
-        <input type="checkbox" name="accept" id="accept" value ="<?php echo $accept; ?>">
-        <label for="accept" id="label_accept">I accept the above Terms and Conditions.</label>
-      </div>
-
-      <div class="center">
-        <input type="submit" name="btnSubmit" value="Register" value ="<?php echo $Register; ?>">
-        <input type="reset" name="btnReset" value="Clear" value ="<?php echo $Clear; ?>">
       </div>
     </form>
     <a href="index.html">Back to Main Page</a>
