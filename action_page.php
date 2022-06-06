@@ -86,5 +86,5 @@
 		 
 	 }
 	
- include('form.html')
+
 ?> 
